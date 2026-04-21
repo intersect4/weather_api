@@ -6,4 +6,4 @@ from .models import WeatherRecord
 class WeatherRecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = WeatherRecord
-        fields = ['id', 'city', 'temperature', 'humidity', 'timestamp']
+        fields = ['id', 'city', 'temperature', 'humidity', 'timestamp', 'latitude', 'longitude']

@@ -43,6 +43,9 @@ class Command(BaseCommand):
         main = data.get('main', {})
         temperature = main.get('temp')
         humidity = main.get('humidity')
+        coord = data.get('coord', {})
+        latitude = coord.get('lat')
+        longitude = coord.get('lon')
 
         if temperature is None or humidity is None:
             raise CommandError('Respuesta invalida de OpenWeatherMap')
@@ -51,6 +54,8 @@ class Command(BaseCommand):
             city=city,
             temperature=temperature,
             humidity=humidity,
+            latitude=latitude,
+            longitude=longitude,
         )
 
         self.stdout.write(
